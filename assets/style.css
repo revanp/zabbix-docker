@@ -1,0 +1,17 @@
+.header-title {
+    background: #EEEEEE !important;
+}
+
+.menu-main {
+    background: #EEEEEE !important;
+}
+/* Mengubah logo size jika diperlukan */
+.logo {
+    height: 40px;
+    width: auto;
+}
+
+.btn-primary {
+    background-color: #EEEEEE !important;
+    border-color: #EEEEEE !important;
+} 

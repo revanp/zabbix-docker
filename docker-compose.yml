@@ -23,7 +23,9 @@ services:
       - zabbix-db
 
   zabbix-web:
-    image: zabbix/zabbix-web-nginx-pgsql:alpine-latest
+    build:
+      context: .
+      dockerfile: Dockerfile.web
     container_name: zabbix-web
     restart: unless-stopped
     environment:

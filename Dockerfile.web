@@ -1,0 +1,15 @@
+FROM zabbix/zabbix-web-nginx-pgsql:alpine-latest
+
+# Copy file kustom CSS dan gambar
+COPY assets/style.css /usr/share/zabbix/assets/styles/custom.css
+COPY assets/logo.png /usr/share/zabbix/assets/img/logo.png
+
+# Ubah permission dan tambahkan custom CSS
+USER root
+RUN chmod 666 /usr/share/zabbix/include/page_header.php && \
+    echo '<link rel="stylesheet" type="text/css" href="assets/styles/custom.css">' >> /usr/share/zabbix/include/page_header.php && \
+    chown zabbix:zabbix /usr/share/zabbix/include/page_header.php && \
+    chmod 644 /usr/share/zabbix/include/page_header.php
+
+# Kembalikan ke user zabbix
+USER zabbix 
